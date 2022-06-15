@@ -5,6 +5,8 @@ let contenedorTarjetas=document.getElementById("tarjetas_container")
 
 let peliculas=JSON.parse(localStorage.getItem('peliculas')) ||[]
 
+let myModal = new bootstrap.Modal(document.getElementById("myModal"));
+
 if( usuario){
    if (usuario.rol==='admin') {
       let item=document.createElement('li')
@@ -23,11 +25,37 @@ if( usuario){
    
    }
 }
+
+
+//-------mostrar modal------------------
+const editModal = function (peliculaId) {
+   console.log(peliculaId);
+   myModal.show();
+  crearCuerpoModal(peliculaId);
+};
+
+//crear el cuerpo del modal-----------------------------------
+const crearCuerpoModal = (index) => {
+   //limpiar el body del modal
+   document.querySelector(".modal-body").innerHTML = "";
+ 
+   //crear el contenido del body del modal que seria el formulario
+   let bodyModal = document.querySelector(".modal-body");
+   let contenidoBody = `<form id="form-update">
+   <label>Descripcion</label>
+   <textarea id="cat-update" class="form-control" value="${peliculas[index].descripcion}" required disabled>${peliculas[index].descripcion}</textarea>      
+ </form>`;
+ 
+   //agregar al body del modal
+   bodyModal.innerHTML = contenidoBody;
+ };
+
+
 function cargarTarjetas() {
    contenedorTarjetas.innerHTML=" ";
 
    if(peliculas.length > 0){
-      peliculas.map(peliculas=>{
+      peliculas.map((peliculas,index)=>{
       let div=document.createElement('div')
       div.classList="col-12 col-md-4 mb-3"
       let tarjeta=`<div class="card h-100">
@@ -35,12 +63,13 @@ function cargarTarjetas() {
       <hr>
       <div class="card-body">
        <h5 class="card-title">${peliculas.nombre}</h5>
-      <p class="card-text txt_tarjeta">${peliculas.descripcion}</p>
+      
     
       </div>
 
       <div class="card-footer">
-      <a href="#" class="btn btn-primary">Ver mas</a>
+
+      <button class="btn btn-primary btn-sm" onclick="editModal(${index})">Ver Mas</button>      
       </div>
       <div>`
 
