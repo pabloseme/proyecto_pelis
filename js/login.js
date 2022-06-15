@@ -12,7 +12,7 @@ function handleSubmit(e) {
     if (validar) {
         if (validar.password === pass) {
             localStorage.setItem("user", JSON.stringify(validar));
-            location.replace("./pages/homenuevo.html")
+            location.replace("./pages/home.html")
         }else{
             alert('Email o contracena incorrectos')
         }

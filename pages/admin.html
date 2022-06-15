@@ -9,15 +9,16 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
     <link rel="stylesheet" href="../css/admin.css" />
 
-    <title>Rolling Platform</title>
+    <title>Evil Genious</title>
 </head>
 
 <body>
     <header>
-        <!--
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark ">
             <div class="container-fluid">
-        
+                <a class="" href="#">
+                    <img id="img-nav" src="../assets/logo_chico.png" width="70" alt="logo" class="" />
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -26,81 +27,50 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="menu_lista">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="./home.html">Inicio</a>
+                            <a class="nav-link " aria-current="page" href="../pages/home.html">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Nosotros</a>
+                            <a class="nav-link" href="../pages/nosotros.html">Nosotros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Administración</a>
+                            <a class="nav-link" href="../pages/contacto.html">Contacto</a>
                         </li>
+                        <!--
+                        <div id="main1">
+                            <li class="nav-item ">
+                                <a class="nav-link active" aria-current="page" href="./admin.html">Adm-Peliculas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="./usuarios.html">Adm-Usuarios</a>
+                            </li>                        
+                        </div>
+                        -->
+                        <!-- si el usuario es admin se habilite la opcion administración  -->
                     </ul>
+                    <!--
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                        <button class="btn btn-outline-success" type="submit">
+                            Buscar
+                        </button>
+                    </form>
+                    -->
+                    <button class="btn btn-outline-light ms-2" onclick="cerrarSesion()">
 
+                        <i class="fa fa-sign-out" aria-hidden="true">
+                            <a href="../index.html"></a>
+                        </i>
+
+                    </button>
                 </div>
             </div>
         </nav>
-        -->
-
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-              <a class="" href="#">
-                <img id="img-nav" src="../assets/logo_chico.png" width="70" alt="logo" class=""/>
-              </a>
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-              <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="menu_lista">
-                  <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="../pages/homenuevo.html"
-                      >Inicio</a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../pages/nosotros.html">Nosotros</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Contacto</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link  active" aria-current="page" href="./admin.html">Adm-Peliculas</a>
-                  </li>              
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="./usuarios.html">Adm-Usuarios</a>
-                  </li>                            
-                    <!-- si el usuario es admin se habilite la opcion administración  -->
-                </ul>
-                <form class="d-flex">
-                  <input
-                    class="form-control me-2"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                  />
-                  <button class="btn btn-outline-success" type="submit">
-                    Buscar
-                  </button>
-                </form>
-                <button class="btn btn-outline-light ms-2" onclick="cerrarSesion()">
-                  <i class="fa fa-sign-out" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-          </nav>        
     </header>
-    <main>
+    <main id="mainaux">
         <div class="container">
             <div class="row mt-5">
                 <div class="col">
-                    <h1>Administración</h1>
+                    <h1>Administración de Peliculas</h1>
                     <hr />
                 </div>
             </div>
@@ -111,30 +81,18 @@
                     <form id="formulario">
                         <label>Nombre</label>
                         <input id="nombre" class="form-control" type="text" required />
-                        <label>Categoria</label>    
-                        <select id="cat" class="form-control" required>                          
-                          <option value="Recomendadas" selected>Recomendadas</option>
-                          <option value="Terror">Terror</option>      
-                          <option value="Aventura">Aventura y Accion</option>     
-                          <option value="CienciaF">Ciencia Ficcion</option>                                                         
-                        </select>    
-                        <!--
                         <label>Categoria</label>
                         <input id="cat" class="form-control" type="text">
-                        -->
                         <label>Descripción</label>
                         <textarea id="desc" class="form-control" required></textarea>
-                        <!--
                         <label>Imagen</label>
                         <input id="imagen" class="form-control" type="text" placeholder="Ingrese una url" required />
-                        -->
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label">Imagen </label>
-                            <input class="form-control" type="file" id="imagen" accept=".jpeg, .jpg, .gif">
-                          </div>                        
                         <br>
                         <label>Publicado</label>
-                        <input id="public" type="checkbox">
+                        <select id="public">
+                            <option value="si">si</option>
+                            <option value="no">no</option>
+                        </select>
 
 
                         <button class="btn btn-primary mt-3 float-end">Guardar</button>
@@ -143,15 +101,13 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <table class="table table-dark">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Categoria</th>
-                                <th scope="col">Descripcion</th>                                
                                 <th scope="col">Publicado</th>
-                                <th scope="col">Opciones</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -170,7 +126,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div id="modal-content" class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="myModalLabel">Actualizar Curso</h5>
+                    <h5 class="modal-title" id="myModalLabel">Actualizar pelicula</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <!-- cuerpo del modal  -->

@@ -5,16 +5,6 @@ let myModal = new bootstrap.Modal(document.getElementById("myModal"));
 //let btnNuevo = document.getElementById("btn-nuevo")
 
 
-
-
-
-///mostrar modal para carga de nuevo
-const nuevoModal = function(){
-  console.log("nuevo usuario");
-  myModal.show();
-  crearCuerpoModalNuevo();
-};
-
 //-------mostrar modal------------------
 const editModal = function (usuarioId) {
     console.log(usuarioId);
@@ -25,46 +15,20 @@ const editModal = function (usuarioId) {
  //btnNuevo.addEventListener("click",nuevoModal);
 
  //crear el cuerpo del modal-----------------------------------
-const crearCuerpoModalNuevo = (index) => {
-    //limpiar el body del modal
-    document.querySelector(".modal-body").innerHTML = "";
-  
-    //crear el contenido del body del modal que seria el formulario
-    let bodyModal = document.querySelector(".modal-body");
-    let contenidoBody = `<form id="form-update" onSubmit="actualizarUsuario(event,${0},'A')">
-    <label>Nombre</label>
-    <input id="nombre-update" class="form-control" type="text" value="" required />
-    <label>Correo Electronico</label>    
-    <input id="mail-update" class="form-control" type="text" value="" required />
-    <label>Estado</label>    
-    <select id="estado-update" class="form-control" required>
-      <option selected>Pendiente</option>
-      <option value="Aprobado">Aprobado</option>
-      <option value="Suspendido">Suspendido</option>      
-    </select>    
-    <button class="btn btn-primary mt-3 float-end">Guardar</button>
-  </form>`;
-  
-    //agregar al body del modal
-    bodyModal.innerHTML = contenidoBody;
-  };
-
-
-//crear el cuerpo del modal-----------------------------------
-const crearCuerpoModal = (index) => {
+ const crearCuerpoModalNuevo = (index) => {
   //limpiar el body del modal
   document.querySelector(".modal-body").innerHTML = "";
 
   //crear el contenido del body del modal que seria el formulario
   let bodyModal = document.querySelector(".modal-body");
-  let contenidoBody = `<form id="form-update" onSubmit="actualizarUsuario(event,${index})">
+  let contenidoBody = `<form id="form-update" onSubmit="actualizarUsuario(event,${0},'A')">
   <label>Nombre</label>
-  <input id="nombre-update" class="form-control" type="text" value="${usuarios[index].nombre}" disabled required />
+  <input id="nombre-update" class="form-control" type="text" value="" required />
   <label>Correo Electronico</label>    
-  <input id="mail-update" class="form-control" type="text" value="${usuarios[index].email}" disabled required />
+  <input id="mail-update" class="form-control" type="text" value="" required />
   <label>Estado</label>    
   <select id="estado-update" class="form-control" required>
-    <option selected>${usuarios[index].estado}</option>
+    <option selected>Pendiente</option>
     <option value="Aprobado">Aprobado</option>
     <option value="Suspendido">Suspendido</option>      
   </select>    
@@ -75,8 +39,7 @@ const crearCuerpoModal = (index) => {
   bodyModal.innerHTML = contenidoBody;
 };
 
-  
-//Actualizar el curso--------------------------------
+//Actualizar el usuario--------------------------------
 const actualizarUsuario = function (e, index) {
   e.preventDefault(); //para evitar que se envie
 
@@ -126,7 +89,11 @@ const cargarTabla = () => {
     });
   };
 
-
+  function cerrarSesion(){
+    location.href='../index.html';
+    let user = [];
+    localStorage.setItem("user", JSON.stringify(user));     
+ }
 
 
   cargarTabla();
